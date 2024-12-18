@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desserts Recipes</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+
+
+
+    <nav>
+        <div class="logo">
+            <img src="https://thumbs.dreamstime.com/b/food-farm-logo-icon-design-can-be-used-as-complement-to-125644165.jpg" alt="NutriDelights Logo">
+            <h1 id="logo">NutriDelights</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#index.html">Category</a>
+            <a href="add.html">Blog</a>
+            <a href="index.html">About Us</a>
+        </div>
+    </nav>
+
+
+
+    <!-- ///////////////// -->
+
+    <div class="contain">
+        <input type="text" id="search-input" placeholder="Search by name or ingredients">
+         <button id="search-btn">Search</button>
+       </div>
+
+    
+    <header>
+        <h2>Desserts Recipes</h2>
+    </header>
+    <section class="recipe-section">
+        <!-- Recipe cards -->
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdbg7KpvKn7fuGEp6kpBJXyzvp9UVSFX63_w&s" alt="Gulab Jamun" class="recipe-image">
+            <h2>Gulab Jamun</h2>
+            <p>Sweet and syrupy</p>
+            <a href="#" class="view-recipe" data-recipe="gulab-jamun-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq7hV0zryXjmbulcaEBh7h_U_59xjEwBITUIlb_GwbzoBBVIhfHV1RQ2m9_kh5-gvV44A&usqp=CAU" alt="Gulab Jamun" class="recipe-image">
+
+            <h2>Rasgulla</h2>
+            <p>Soft and spongy</p>
+            <a href="#" class="view-recipe" data-recipe="rasgulla-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-HeJYCZ6ENjkblSZPTL8LtQ0RYt4mOTDOQ&s" alt="Gulab Jamun" class="recipe-image">
+            <h2>Kheer</h2>
+            <p>Rich and creamy</p>
+            <a href="#" class="view-recipe" data-recipe="kheer-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1nVt_peSv2lZz3ly8CQscRuBsjl6ojXZO5g&s" class="recipe-image">
+            <h2>Ladoo</h2>
+            <p>Traditional sweet ball</p>
+            <a href="#" class="view-recipe" data-recipe="ladoo-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ufLMzA-L6WV_bxGo0bFZry4kORXOJTxt6LcjA1qfdu50sKoLsj50nsj81lnRfzS5-6o&usqp=CAU" alt="Gulab Jamun" class="recipe-image">
+            <h2>Jalebi</h2>
+            <p>Crispy and sugary</p>
+            <a href="#" class="view-recipe" data-recipe="jalebi-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1mdmLmL94AcU16dgCZH2Mwm5YHutoDruGZ2YIi8WR31eI1QTokdjU6sW7ZoBq_viUb8U&usqp=CAU" alt="Gulab Jamun" class="recipe-image">
+            <h2>Barfi</h2>
+            <p>Soft and fudgy</p>
+            <a href="#" class="view-recipe" data-recipe="barfi-recipe">View Recipe</a>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="recipe-details">
+                <!-- Recipe details will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('recipe-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const recipeDetails = document.getElementById('recipe-details');
+    const recipes = {
+    "gulab-jamun-recipe": {
+        title: "Gulab Jamun",
+        time: "45 minutes",
+        ingredients: [
+            "Khoya 1 cup",
+            "Flour 2 tbsp",
+            "Sugar 1 cup",
+            "Water as needed",
+            "Ghee for frying"
+        ],
+        steps: [
+            "Mix khoya and flour, shape into small balls.",
+            "Deep fry until golden brown.",
+            "Prepare sugar syrup and soak the fried balls in it.",
+            "Serve warm."
+        ]
+    },
+    "rasgulla-recipe": {
+        title: "Rasgulla",
+        time: "1 hour",
+        ingredients: [
+            "Milk 1 liter",
+            "Lemon juice 2 tbsp",
+            "Sugar 1 cup",
+            "Water as needed"
+        ],
+        steps: [
+            "Boil milk and curdle it with lemon juice.",
+            "Drain and knead the chhena (paneer) until smooth.",
+            "Shape into small balls and boil in sugar syrup.",
+            "Serve chilled."
+        ]
+    },
+    "kheer-recipe": {
+        title: "Kheer",
+        time: "1 hour",
+        ingredients: [
+            "Milk 1 liter",
+            "Rice 1/4 cup",
+            "Sugar 1/2 cup",
+            "Cardamom powder 1/4 tsp",
+            "Nuts as needed"
+        ],
+        steps: [
+            "Cook rice in milk until soft.",
+            "Add sugar and simmer until thickened.",
+            "Garnish with nuts and serve chilled or warm."
+        ]
+    },
+    "ladoo-recipe": {
+        title: "Ladoo",
+        time: "30 minutes",
+        ingredients: [
+            "Besan 1 cup",
+            "Ghee 1/2 cup",
+            "Sugar 1/2 cup",
+            "Cardamom powder 1/4 tsp",
+            "Nuts as needed"
+        ],
+        steps: [
+            "Roast besan in ghee until fragrant.",
+            "Add sugar and cardamom powder.",
+            "Shape into small balls and garnish with nuts.",
+            "Serve."
+        ]
+    },
+    "jalebi-recipe": {
+        title: "Jalebi",
+        time: "1 hour",
+        ingredients: [
+            "Flour 1 cup",
+            "Yogurt 1/2 cup",
+            "Sugar 1 cup",
+            "Water as needed",
+            "Oil for frying"
+        ],
+        steps: [
+            "Prepare a batter with flour, yogurt, and water.",
+            "Ferment for a few hours.",
+            "Fry in hot oil in spiral shapes.",
+            "Soak in sugar syrup and serve."
+        ]
+    },
+    "barfi-recipe": {
+        title: "Barfi",
+        time: "1 hour",
+        ingredients: [
+            "Khoya 1 cup",
+            "Sugar 1/2 cup",
+            "Cardamom powder 1/4 tsp",
+            "Nuts as needed"
+        ],
+        steps: [
+            "Cook khoya with sugar until thickened.",
+            "Add cardamom powder and nuts.",
+            "Pour into a greased tray and cool.",
+            "Cut into squares and serve."
+        ]
+    }
+};
+    function openModal(recipeKey, imageSrc) {
+        const recipe = recipes[recipeKey];
+        recipeDetails.innerHTML = `
+            <img src="${imageSrc}" alt="${recipe.title}" style="width:100%; height:auto; margin-bottom: 20px;">
+            <h2>${recipe.title}</h2>
+            <h3>Preparation Time: ${recipe.time}</h3>
+            <h3>Ingredients:</h3>
+            <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+            <h3>Steps:</h3>
+            <ul>${recipe.steps.map(step => `<li>${step}</li>`).join('')}</ul>
+        `;
+        modal.style.display = 'flex';
+    }
+
+    document.querySelectorAll('.view-recipe').forEach(button => {
+        button.addEventListener('click', event => {
+            event.preventDefault();
+            const recipeKey = button.getAttribute('data-recipe');
+            const imageSrc = button.closest('.recipe-card').querySelector('.recipe-image').src;
+            openModal(recipeKey, imageSrc);
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', event => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+
+/////
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const recipeCards = document.querySelectorAll('.recipe-card');
+
+function searchRecipes() {
+    const query = searchInput.value.toLowerCase();
+
+    recipeCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const ingredients = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(query) || ingredients.includes(query)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+searchButton.addEventListener('click', searchRecipes);
+searchInput.addEventListener('keyup', searchRecipes);
+
+
+
+    </script>
+</body>
+</html>

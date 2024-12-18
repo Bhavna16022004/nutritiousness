@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Recipe Book</title>
+    <link rel="stylesheet" href="add.css">
+    <script defer src="add.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="https://thumbs.dreamstime.com/b/food-farm-logo-icon-design-can-be-used-as-complement-to-125644165.jpg" alt="NutriDelights Logo">
+            <h1 id="logo">NutriDelights</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html">Category</a>
+            <a href="add.html">Blog</a>
+            <a href="index.html">About Us</a>
+        </div>
+    </nav>
+    
+    
+        <div class="contain">
+           <input type="text" id="search-input" placeholder="Search by name or ingredients">
+            <button id="search-btn">Search</button>
+          </div>
+
+
+    <section id="add-recipe" class="add-recipe">
+        <div class="container">
+            <h2>Add a New Recipe</h2>
+            <form id="recipe-form">
+                <input type="text" id="recipe-name" placeholder="Recipe Name" required>
+                <input type="text" id="recipe-ingredients" placeholder="Ingredients (comma separated)" required>
+                <textarea id="recipe-instructions" placeholder="Instructions" required></textarea>
+                <input type="url" id="recipe-image" placeholder="Image URL" required>
+                <button type="submit">Add Recipe</button>
+            </form>
+        </div>
+    </section>
+<br>
+
+<br>
+    <section id="home" class="recipe-display">
+        <div class="container">
+            <h2>Healthy Recipes</h2>
+            <div id="recipe-grid" class="grid-container">
+                <!-- Recipe cards will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Modal structure -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">X</button>
+            <img id="modal-image" src="" alt="">
+            <h3 id="modal-name"></h3>
+            <p><strong>Ingredients:</strong> <span id="modal-ingredients"></span></p>
+            <p><strong>Instructions:</strong> <span id="modal-instructions"></span></p>
+        </div>
+    </div>
+
+</body>
+</html>

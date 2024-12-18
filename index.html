@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriDelights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://thumbs.dreamstime.com/b/food-farm-logo-icon-design-can-be-used-as-complement-to-125644165.jpg" alt="NutriDelights Logo">
+            <h1 id="logo">NutriDelights</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#video">Video</a>
+            <a href="add.html">Blog</a>
+            <a href="#about">About Us</a>
+        </div>
+    </nav>
+
+    <div class="hero-content">
+        <h1>Welcome to NutriDelights</h1>
+        <p>Discover delicious and nutritious recipes to fuel your body and mind.</p>
+        <form action="#" class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for recipes...">
+            <button type="button" id="search-button">Search</button>
+        </form>
+    </div>
+
+    <main>
+        <section class="categories">
+            <h2>Recipe Categories</h2>
+            <div class="category-list">
+                <div class="category-item">
+                    <img src="https://www.kateskitchenkc.com/wp-content/uploads/2023/10/traditional-full-american-breakfast-eggs-pancakes-with-bacon-and-toast.jpg_s1024x1024wisk20cz03ui5Oqyz8Ys_pG0bVWsgoz_v_E5Oct4x-0C-sAjME.jpg" alt="Breakfast">
+                    <a href="breakfast.html" class="category-card">Breakfast</a>
+                </div>
+
+                <div class="category-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzP-75orCFJh7Nlp2ohZeW8al1KhMx9L_HD6I3gVufA24ZWZABn2Q1lzE6lrt2vI_wOKg&usqp=CAU" alt="Lunch">
+                    <a href="Lunch.html" class="category-card">Lunch</a>
+                </div>
+
+                <div class="category-item">
+                    <img src="https://media.self.com/photos/5a316fd183ab3f54feacf768/4:3/w_2560%2Cc_limit/Roasted-pork.jpg" alt="Dinner">
+                    <a href="dinner.html" class="category-card">Dinner</a>
+                </div>
+
+                <div class="category-item">
+                    <img src="https://www.tastingtable.com/img/gallery/25-most-popular-snacks-in-america-ranked-worst-to-best/intro-1645492743.jpg" alt="Snacks">
+                    <a href="snacks.html" class="category-card">Snacks</a>
+                </div>
+                
+                <div class="category-item">
+                    <img src="https://static.vecteezy.com/system/resources/previews/035/985/777/non_2x/ai-generated-tcookie-plate-dessert-food-photo.jpg" alt="Desserts">
+                    <a href="Dessert.html" class="category-card">Desserts</a>
+                </div>
+
+                <div class="category-item">
+                    <img src="https://dmiusd4kl5bx2.cloudfront.net/Blog-Images/_636x568_crop_center-center_none/vegan-diet-for-sustainable-weight-loss.png" alt="Vegan">
+                    <a href="Vegan.html" class="category-card">Vegan</a>
+                </div>
+
+                <div class="category-item">
+                    <img src="https://www.uhhospitals.org/-/media/images/social/gluten-free-food-1139277998-blog-opengraph.jpg" alt="Gluten-Free">
+                    <a href="gluten.html" class="category-card">Gluten-Free</a>
+                </div>
+            </div>
+        </section>
+
+           <section class="featured-recipes" id="weeknight">
+            <h2>Weeknight Recipes</h2>
+            <div class="recipe-grid">
+                <div class="recipe-card" onclick="openRecipe('recipe1')">
+                    <img src="https://pinchofyum.com/cdn-cgi/image/width=680,height=99999,fit=scale-down/wp-content/uploads/Best-Instant-Pot-Mac-and-Cheese.jpg" alt="Instant Pot Mac and Cheese">
+                    <h4>Instant Pot Mac<br>and Cheese</h4>
+                </div>
+                <div class="recipe-card" onclick="openRecipe('recipe2')">
+                    <img src="https://pinchofyum.com/cdn-cgi/image/width=680,height=99999,fit=scale-down/wp-content/uploads/Caprese-Grilled-Cheese-5.jpg" alt="Caprese Grilled Cheese">
+                    <h4>Caprese Grilled<br>Cheese</h4>
+                </div>
+                <div class="recipe-card" onclick="openRecipe('recipe3')">
+                    <img src="https://pinchofyum.com/cdn-cgi/image/width=680,height=99999,fit=scale-down/wp-content/uploads/Gochujang-Noodles-4.jpg" alt="Noodles">
+                    <h4>Noodles</h4>
+                </div>
+        
+                <div class="recipe-card" onclick="openRecipe('recipe4')">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScI5VpXku0FQxDpKQoGwN24k0lptMoEmkpRblikSQKAoqO7JJeQuYHILoe_-vwV3ptypU&usqp=CAU" alt="Squash Salad">
+                    <h4>Squash Salad</h4>
+                </div>
+                <div class="recipe-card" onclick="openRecipe('recipe5')">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1CDvHS2ym13Jn4AJbhElP2lh-tV8-Nqcqr9B-sMOJtVBfj8CWqY99USL5w9K1gKXIio0&usqp=CAU" alt="Roasted Brussels Sprouts">
+                    <h4>Roasted Brussels<br>Sprouts</h4>
+                </div>
+                <div class="recipe-card" onclick="openRecipe('recipe6')">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGVSgiiCyDcjGG-Q0ciJiBBzjpiTgZqEfGdeULgHZteP9f1hqG6qxwY89gFQiMuBErYs8&usqp=CAU" alt="Sopa Tarasca">
+                    <h4>Sopa Tarasca</h4>
+                </div>
+                <div class="recipe-card" onclick="openRecipe('recipe7')">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8zjuEAmMxeyjsh7kkTQ0MrhO5H3ohvWLWy_pNEaaemvJE6dWYJi5O9J_ewv53LBmfOSQ&usqp=CAU" alt="Momo">
+                    <h4>Momo</h4>
+                </div>
+                <!-- Add more recipe cards similarly -->
+            </div>
+        </section>
+        
+        <div id="recipeModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeRecipe()">&times;</span>
+                <img id="recipeImage" src="" alt="Recipe Image">
+                <h4 id="recipeTitle"></h4>
+                <p id="recipeTime"></p>
+                <h5>Ingredients:</h5>
+                <ul id="recipeIngredients"></ul>
+                <h5>Instructions:</h5>
+                <p id="recipeInstructions"></p>
+            </div>
+        </div>
+        <h2>Vedio</h2>
+        <div class="video-gallery" id="video">
+           
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/NGTeYPF7C6U" allowfullscreen></iframe>
+                <p class="video-title">MASROOM AND MATTER</p>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/qFnM4LKRh8c" 
+                width="560" 
+                height="315" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+                        <p class="video-title">FARAA</p>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/syZYk4lUQd4" allowfullscreen></iframe>
+                <p class="video-title">SANDWICH</p>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/Vx6Opt2bhhM" allowfullscreen></iframe>
+                <p class="video-title">PULLAV</p>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/iRbnMopUArk" allowfullscreen></iframe>
+                <p class="video-title">PIZZA</p>
+            </div>
+        </div>
+        
+        
+
+        <section class="about" id="about">
+            <h2>About Us</h2>
+            <p>We believe that healthy eating should be both delicious and accessible. Our mission is to provide you with a variety of recipes that are easy to make and packed with nutrients.</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>NutriDelights is dedicated to providing you with the best recipes to keep your meals nutritious and delicious.</p>
+            </div>
+            
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: info@nutridelights.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Healthy Way, Wellness City, 45678</p>
+            </div>
+    
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Pinterest"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="Script.js">
+      
+    </script>
+</body>
+</html>

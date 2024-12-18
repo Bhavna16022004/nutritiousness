@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Recipes</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+
+    <nav>
+        <div class="logo">
+            <img src="https://thumbs.dreamstime.com/b/food-farm-logo-icon-design-can-be-used-as-complement-to-125644165.jpg" alt="NutriDelights Logo">
+            <h1 id="logo">NutriDelights</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html">Category</a>
+            <a href="add.html">Blog</a>
+            <a href="index.html">About Us</a>
+        </div>
+    </nav>
+
+
+    <!-- ///////////////// -->
+
+    <div class="contain">
+        <input type="text" id="search-input" placeholder="Search by name or ingredients">
+         <button id="search-btn">Search</button>
+       </div>
+    
+    <header>
+        <h2>Breakfast Recipes</h2>
+    </header>
+    <section class="recipe-section">
+        <!-- Recipe cards -->
+        <div class="recipe-card">
+            <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/idli-recipe-1-280x280.jpg" alt="Idli" class="recipe-image">
+            <h2>Idli</h2>
+            <p>Soft and fluffy</p>
+            <a href="#" class="view-recipe" data-recipe="idli-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2013/05/mysore-masala-dosa-recipe-280x280.jpg" alt="Dosa" class="recipe-image">
+            <h2>Dosa</h2>
+            <p>Crispy and savory</p>
+            <a href="#" class="view-recipe" data-recipe="dosa-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2016/09/masala-paratha-recipe-280x280.jpg" alt="Paratha" class="recipe-image">
+            <h2>Paratha</h2>
+            <p>Buttery and stuffed</p>
+            <a href="#" class="view-recipe" data-recipe="paratha-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2022/09/poha-recipe-1-280x280.jpg" alt="Poha" class="recipe-image">
+            <h2>Poha</h2>
+            <p>Light and flavorful</p>
+            <a href="#" class="view-recipe" data-recipe="poha-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2016/01/tomato-upma-280x280.jpg" alt="Upma" class="recipe-image">
+            <h2>Upma</h2>
+            <p>Savory and wholesome</p>
+            <a href="#" class="view-recipe" data-recipe="upma-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2020/11/puri-280x280.jpg" alt="Aloo Puri" class="recipe-image">
+            <h2>Aloo Puri</h2>
+            <p>Fried and spicy</p>
+            <a href="#" class="view-recipe" data-recipe="aloo-puri-recipe">View Recipe</a>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="recipe-details">
+                <!-- Recipe details will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('recipe-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const recipeDetails = document.getElementById('recipe-details');
+
+    const recipes = {
+        "idli-recipe": {
+            title: "Idli",
+            time: "30 minutes",
+            ingredients: [
+                "Rice  2 cups",
+                "Urad dal  1 cup",
+                "Salt  to taste",
+                "Water  as needed"
+            ],
+            steps: [
+                "Soak rice and urad dal separately for 4-6 hours.",
+                "Grind them to a fine batter and mix.",
+                "Ferment overnight and steam in idli molds.",
+                "Serve with chutney and sambar."
+            ]
+        },
+        "dosa-recipe": {
+            title: "Dosa",
+            time: "20 minutes",
+            ingredients: [
+                "Rice  2 cups",
+                "Urad dal  1/2 cup",
+                "Fenugreek seeds  1 tsp",
+                "Salt  to taste"
+            ],
+            steps: [
+                "Soak rice, urad dal, and fenugreek seeds for 4-6 hours.",
+                "Grind to a smooth batter and ferment overnight.",
+                "Spread the batter thinly on a hot tawa.",
+                "Cook until crispy and serve with chutney."
+            ]
+        },
+        "paratha-recipe": {
+            title: "Paratha",
+            time: "25 minutes",
+            ingredients: [
+                "Wheat flour  2 cups",
+                "Potatoes  3 medium-sized",
+                "Spices  as needed",
+                "Ghee  as needed"
+            ],
+            steps: [
+                "Knead wheat flour into a dough.",
+                "Prepare a spiced potato filling.",
+                "Roll out dough, add filling, and fold.",
+                "Cook on a tawa with ghee until golden."
+            ]
+        },
+        "poha-recipe": {
+            title: "Poha",
+            time: "15 minutes",
+            ingredients: [
+                "Flattened rice  2 cups",
+                "Onions  1 medium-sized",
+                "Spices  as needed",
+                "Peanuts  1/4 cup"
+            ],
+            steps: [
+                "Rinse poha and set aside.",
+                "Saute onions, spices, and peanuts.",
+                "Add poha and mix well.",
+                "Serve hot with a squeeze of lemon."
+            ]
+        },
+        "upma-recipe": {
+            title: "Upma",
+            time: "20 minutes",
+            ingredients: [
+                "Semolina  1 cup",
+                "Mustard seeds  1 tsp",
+                "Curry leaves  a few",
+                "Vegetables  as needed"
+            ],
+            steps: [
+                "Roast semolina until fragrant.",
+                "Saute mustard seeds, curry leaves, and vegetables.",
+                "Add water and bring to a boil.",
+                "Stir in semolina and cook until fluffy."
+            ]
+        },
+        "aloo-puri-recipe": {
+            title: "Aloo Puri",
+            time: "30 minutes",
+            ingredients: [
+                "Wheat flour  2 cups",
+                "Potatoes  4 medium-sized",
+                "Spices  as needed",
+                "Oil  for frying"
+            ],
+            steps: [
+                "Knead wheat flour into a dough.",
+                "Prepare a spiced potato curry.",
+                "Roll out dough and fry in oil to make puris.",
+                "Serve hot with aloo curry."
+            ]
+        }
+    };
+
+    function openModal(recipeKey, imageSrc) {
+        const recipe = recipes[recipeKey];
+        recipeDetails.innerHTML = `
+            <img src="${imageSrc}" alt="${recipe.title}" style="width:100%; height:auto; margin-bottom: 20px;">
+            <h2>${recipe.title}</h2>
+            <h3>Preparation Time: ${recipe.time}</h3>
+            <h3>Ingredients:</h3>
+            <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+            <h3>Steps:</h3>
+            <ul>${recipe.steps.map(step => `<li>${step}</li>`).join('')}</ul>
+        `;
+        modal.style.display = 'flex';
+    }
+
+    document.querySelectorAll('.view-recipe').forEach(button => {
+        button.addEventListener('click', event => {
+            event.preventDefault();
+            const recipeKey = button.getAttribute('data-recipe');
+            const imageSrc = button.closest('.recipe-card').querySelector('.recipe-image').src;
+            openModal(recipeKey, imageSrc);
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', event => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+/////
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const recipeCards = document.querySelectorAll('.recipe-card');
+
+function searchRecipes() {
+    const query = searchInput.value.toLowerCase();
+
+    recipeCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const ingredients = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(query) || ingredients.includes(query)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+searchButton.addEventListener('click', searchRecipes);
+searchInput.addEventListener('keyup', searchRecipes);
+
+
+
+    </script>
+</body>
+</html>

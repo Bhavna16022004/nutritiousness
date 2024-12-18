@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low-Carb Recipes</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+
+    <nav>
+        <div class="logo">
+            <img src="https://thumbs.dreamstime.com/b/food-farm-logo-icon-design-can-be-used-as-complement-to-125644165.jpg" alt="NutriDelights Logo">
+            <h1 id="logo">NutriDelights</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html">Category</a>
+            <a href="add.html">Blog</a>
+            <a href="index.html">About Us</a>
+        </div>
+    </nav>
+
+
+    <!-- ///////////////// -->
+
+    <div class="contain">
+        <input type="text" id="search-input" placeholder="Search by name or ingredients">
+         <button id="search-btn">Search</button>
+       </div>
+
+    
+    <header>
+        <h2>Low-Carb Recipes</h2>
+    </header>
+    <section class="recipe-section">
+        <!-- Recipe cards -->
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzZOVJfNepO7J8K9l4F6v7dZj7JC96MJI0bFr9S3O84XDfdGBLTX3TTIhkuShfbYOtCfI&usqp=CAU" alt="Cauliflower Pizza" class="recipe-image"> 
+            <h2>Cauliflower Pizza</h2>
+            <p>Low-carb and delicious</p>
+            <a href="#" class="view-recipe" data-recipe="cauliflower-pizza-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA8gLxYC27eO9t6jjSME1OHrbLKRhS0nzLFQNmTishI8LRy_Y8QqE7lxj2DTgOjQFilW0&usqp=CAU" alt="Zucchini Noodles" class="recipe-image"> 
+            <h2>Zucchini Noodles</h2>
+            <p>Light and healthy</p>
+            <a href="#" class="view-recipe" data-recipe="zucchini-noodles-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK24hg8ubnIAr8UwMWLUbgGwXSGl9HUkKpuxRpxhXGWsB9TYopUCCQ5Ol6Yy4BMssuRJ4&usqp=CAU" alt="Grilled Chicken Salad" class="recipe-image"> 
+            <h2>Grilled Chicken Salad</h2>
+            <p>Protein-packed meal</p>
+            <a href="#" class="view-recipe" data-recipe="chicken-salad-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEsZRhqY7rObU_eb_uI7DjmuM19tDxtNMbZfBjy6FxZntIHAQDfhGkna4tIvwHkPHLL4E&usqp=CAU" alt="Eggplant Lasagna"  class="recipe-image"> 
+            <h2>Eggplant Lasagna</h2>
+         
+            <p>Low-carb comfort food</p>
+            <a href="#" class="view-recipe" data-recipe="eggplant-lasagna-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Q3Q_34Xdd6CFFcD9aTDrloUew-BQ2QDzoS1CbhMa2Fe0Q4kauaaFXhwU54NtRY7UARM&usqp=CAU" alt="Keto Avocado Salad" class="recipe-image"> 
+            <h2>Keto Avocado Salad</h2>
+            <p>Healthy and tasty</p>
+            <a href="#" class="view-recipe" data-recipe="keto-avocado-salad-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh4OvaUGcRQI-X5anFVGmKQC7xUKa_BOki_JO8_NNplxah270Ayxjr4gAE1rJChyCMN68&usqp=CAU" alt="Baked Salmon" class="recipe-image"> 
+            <h2>Baked Salmon</h2>
+            <p>Rich in omega-3</p>
+            <a href="#" class="view-recipe" data-recipe="baked-salmon-recipe">View Recipe</a>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="recipe-details">
+                <!-- Recipe details will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+     document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('recipe-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const recipeDetails = document.getElementById('recipe-details');
+
+    const recipes = {
+        "cauliflower-pizza-recipe": {
+            title: "Cauliflower Pizza",
+            time: "40 minutes",
+            ingredients: [
+                "Cauliflower 1 large",
+                "Mozzarella cheese 1 cup, shredded",
+                "Parmesan cheese 1/4 cup, grated",
+                "Egg 1 large",
+                "Tomato sauce 1/2 cup",
+                "Vegetable toppings of choice"
+            ],
+            steps: [
+                "Preheat oven and prepare a pizza base using cauliflower, cheese, and egg.",
+                "Spread tomato sauce and add your favorite vegetable toppings.",
+                "Bake in the oven until the crust is crispy."
+            ]
+        },
+        "zucchini-noodles-recipe": {
+            title: "Zucchini Noodles",
+            time: "20 minutes",
+            ingredients: [
+                "Zucchini 2 medium",
+                "Olive oil 1 tbsp",
+                "Garlic 2 cloves, minced",
+                "Parmesan cheese 1/4 cup, grated",
+                "Cherry tomatoes 1/2 cup, halved"
+            ],
+            steps: [
+                "Spiralize the zucchini into noodles.",
+                "Sauté garlic in olive oil and add zucchini noodles.",
+                "Cook until just tender and serve with Parmesan and cherry tomatoes."
+            ]
+        },
+        "chicken-salad-recipe": {
+            title: "Grilled Chicken Salad",
+            time: "25 minutes",
+            ingredients: [
+                "Chicken breast 1 large",
+                "Lettuce 2 cups, chopped",
+                "Cucumber 1, sliced",
+                "Tomato 1, diced",
+                "Avocado 1, sliced",
+                "Olive oil 2 tbsp",
+                "Lemon juice 1 tbsp"
+            ],
+            steps: [
+                "Grill the chicken breast and slice it.",
+                "Toss lettuce, cucumber, tomato, and avocado in a bowl.",
+                "Top with grilled chicken and drizzle with olive oil and lemon juice."
+            ]
+        },
+        "eggplant-lasagna-recipe": {
+            title: "Eggplant Lasagna",
+            time: "50 minutes",
+            ingredients: [
+                "Eggplant 2 large, sliced",
+                "Tomato sauce 2 cups",
+                "Mozzarella cheese 1 cup, shredded",
+                "Parmesan cheese 1/4 cup, grated",
+                "Basil 1/4 cup, chopped"
+            ],
+            steps: [
+                "Slice and bake the eggplant until tender.",
+                "Layer eggplant slices with tomato sauce and cheese.",
+                "Bake in the oven until the cheese is bubbly and golden."
+            ]
+        },
+        "keto-avocado-salad-recipe": {
+            title: "Keto Avocado Salad",
+            time: "15 minutes",
+            ingredients: [
+                "Avocado 2, diced",
+                "Cucumber 1, chopped",
+                "Tomato 1, diced",
+                "Red onion 1/2, chopped",
+                "Lemon juice 1 tbsp",
+                "Olive oil 1 tbsp"
+            ],
+            steps: [
+                "Chop all the ingredients and mix in a bowl.",
+                "Drizzle with lemon juice and olive oil.",
+                "Serve immediately."
+            ]
+        },
+        "baked-salmon-recipe": {
+            title: "Baked Salmon",
+            time: "30 minutes",
+            ingredients: [
+                "Salmon fillets 4",
+                "Olive oil 2 tbsp",
+                "Garlic 3 cloves, minced",
+                "Lemon 1, juiced",
+                "Herbs 1 tbsp, mixed"
+            ],
+            steps: [
+                "Preheat the oven to 375°F (190°C).",
+                "Place salmon fillets in a baking dish and drizzle with olive oil and lemon juice.",
+                "Sprinkle with garlic and herbs, and bake for 20 minutes."
+            ]
+        }
+    };
+
+    function openModal(recipeKey, imageSrc) {
+        const recipe = recipes[recipeKey];
+        recipeDetails.innerHTML = `
+            <img src="${imageSrc}" alt="${recipe.title}" style="width:100%; height:auto; margin-bottom: 20px;">
+            <h2>${recipe.title}</h2>
+            <h3>Preparation Time: ${recipe.time}</h3>
+            <h3>Ingredients:</h3>
+            <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+            <h3>Steps:</h3>
+            <ul>${recipe.steps.map(step => `<li>${step}</li>`).join('')}</ul>
+        `;
+        modal.style.display = 'flex';
+    }
+
+    document.querySelectorAll('.view-recipe').forEach(button => {
+        button.addEventListener('click', event => {
+            event.preventDefault();
+            const recipeKey = button.getAttribute('data-recipe');
+            const imageSrc = button.closest('.recipe-card').querySelector('.recipe-image').src;
+            openModal(recipeKey, imageSrc);
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', event => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+
+/////
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const recipeCards = document.querySelectorAll('.recipe-card');
+
+function searchRecipes() {
+    const query = searchInput.value.toLowerCase();
+
+    recipeCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const ingredients = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(query) || ingredients.includes(query)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+searchButton.addEventListener('click', searchRecipes);
+searchInput.addEventListener('keyup', searchRecipes);
+
+
+
+    </script>
+</body>
+</html>

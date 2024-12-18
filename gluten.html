@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gluten-Free Recipes</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+
+    <nav>
+        <div class="logo">
+            <img src="https://thumbs.dreamstime.com/b/food-farm-logo-icon-design-can-be-used-as-complement-to-125644165.jpg" alt="NutriDelights Logo">
+            <h1 id="logo">NutriDelights</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html">Category</a>
+            <a href="add.html">Blog</a>
+            <a href="index.html">About Us</a>
+        </div>
+    </nav>
+    
+
+
+
+    <div class="contain">
+        <input type="text" id="search-input" placeholder="Search by name or ingredients">
+         <button id="search-btn">Search</button>
+       </div>
+
+    <header>
+        <h2>Gluten-Free Recipes</h2>
+    </header>
+    <section class="recipe-section">
+        <!-- Recipe cards -->
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF3sMjCq_JHPWvoAtzaZxNE1UkfXOKm_ihixIz79KST-654tv8kkCECuCXw6puvtRo1no&usqp=CAU" alt="Quinoa Salad" class="recipe-image">
+            <h2>Quinoa Salad</h2>
+            <p>Fresh and healthy</p>
+            <a href="#" class="view-recipe" data-recipe="quinoa-salad-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZRMwInWcDKTMDlsk0sc8l55fjpXp2cnEChdp7a5HgLuzQvrOkr2xlHPVHuTxD4OM4X5w&usqp=CAU" alt="Gluten-Free Pancakes" class="recipe-image">
+            <h2>Gluten-Free Pancakes</h2>
+            <p>Fluffy and delicious</p>
+            <a href="#" class="view-recipe" data-recipe="gluten-free-pancakes-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9-VE6U6qh35wUgUL8GIUV0xOHeoWc4fx5LuaUWj98q7F-PLKtWoM_2honAYElZ5p9efM&usqp=CAU" alt="Grilled Chicken" class="recipe-image">
+            <h2>Grilled Chicken</h2>
+            <p>Juicy and flavorful</p>
+            <a href="#" class="view-recipe" data-recipe="grilled-chicken-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7FKYksC7By6yvHBsh5EsJCh-UwR_XgtlFw0AGRmMBHP1tstVJcrEmkw7jr0rcl78g-Eg&usqp=CAU" alt="Stuffed Peppers" class="recipe-image">
+            <h2>Stuffed Peppers</h2>
+            <p>Savory and filling</p>
+            <a href="#" class="view-recipe" data-recipe="stuffed-peppers-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFdG8fxuNu7lNtA-Jy9rYHYbmXDywRZCauauzhV_FUXuKAevIJssfu_RWmfZmldG7Bb3o&usqp=CAU" alt="Gluten-Free Pasta" class="recipe-image">
+            <h2>Gluten-Free Pasta</h2>
+            <p>Classic Italian</p>
+            <a href="#" class="view-recipe" data-recipe="gluten-free-pasta-recipe">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX2U2JSdc9fFmQdguW8Ij__AZOgwTtEpl4lyn1absBE2-APqJA7ANnYfnumXRsWkFZSu4&usqp=CAU" alt="Baked Salmon" class="recipe-image">
+            <h2>Baked Salmon</h2>
+            <p>Rich and tender</p>
+            <a href="#" class="view-recipe" data-recipe="baked-salmon-recipe">View Recipe</a>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="recipe-details">
+                <!-- Recipe details will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('recipe-modal');
+            const closeBtn = document.querySelector('.close-btn');
+            const recipeDetails = document.getElementById('recipe-details');
+
+            const recipes = {
+                "quinoa-salad-recipe": {
+                    title: "Quinoa Salad",
+                    time: "15 minutes",
+                    ingredients: [
+                        "Quinoa 1 cup",
+                        "Cucumber 1, diced",
+                        "Tomatoes 2, chopped",
+                        "Olive oil 2 tbsp",
+                        "Lemon juice 1 tbsp"
+                    ],
+                    steps: [
+                        "Cook quinoa according to package instructions.",
+                        "Mix quinoa with diced cucumber, chopped tomatoes, olive oil, and lemon juice.",
+                        "Serve chilled."
+                    ]
+                },
+                "gluten-free-pancakes-recipe": {
+                    title: "Gluten-Free Pancakes",
+                    time: "20 minutes",
+                    ingredients: [
+                        "Gluten-free flour 1 cup",
+                        "Milk 1 cup",
+                        "Eggs 2",
+                        "Baking powder 1 tsp",
+                        "Sugar 1 tbsp"
+                    ],
+                    steps: [
+                        "Mix gluten-free flour, baking powder, and sugar.",
+                        "Add milk and eggs, and stir until smooth.",
+                        "Cook on a hot griddle until bubbles form, then flip.",
+                        "Serve with syrup."
+                    ]
+                },
+                "grilled-chicken-recipe": {
+                    title: "Grilled Chicken",
+                    time: "30 minutes",
+                    ingredients: [
+                        "Chicken breasts 4",
+                        "Olive oil 2 tbsp",
+                        "Garlic 2 cloves, minced",
+                        "Lemon juice 2 tbsp",
+                        "Spices as needed"
+                    ],
+                    steps: [
+                        "Marinate chicken with olive oil, garlic, lemon juice, and spices.",
+                        "Grill until cooked through.",
+                        "Serve with your favorite side."
+                    ]
+                },
+                "stuffed-peppers-recipe": {
+                    title: "Stuffed Peppers",
+                    time: "45 minutes",
+                    ingredients: [
+                        "Bell peppers 4, tops removed",
+                        "Ground beef 500g",
+                        "Rice 1 cup, cooked",
+                        "Tomato sauce 1 cup",
+                        "Cheese as needed"
+                    ],
+                    steps: [
+                        "Brown ground beef and mix with cooked rice and tomato sauce.",
+                        "Stuff the mixture into the bell peppers.",
+                        "Top with cheese and bake until peppers are tender."
+                    ]
+                },
+                "gluten-free-pasta-recipe": {
+                    title: "Gluten-Free Pasta",
+                    time: "25 minutes",
+                    ingredients: [
+                        "Gluten-free pasta 200g",
+                        "Tomato sauce 1 cup",
+                        "Garlic 2 cloves, minced",
+                        "Basil 1 tbsp",
+                        "Olive oil 1 tbsp"
+                    ],
+                    steps: [
+                        "Cook gluten-free pasta according to package instructions.",
+                        "In a pan, sauté garlic in olive oil.",
+                        "Add tomato sauce and basil, and simmer.",
+                        "Toss the pasta in the sauce and serve."
+                    ]
+                },
+                "baked-salmon-recipe": {
+                    title: "Baked Salmon",
+                    time: "30 minutes",
+                    ingredients: [
+                        "Salmon fillets 4",
+                        "Lemon juice 2 tbsp",
+                        "Olive oil 1 tbsp",
+                        "Garlic 2 cloves, minced",
+                        "Spices as needed"
+                    ],
+                    steps: [
+                        "Preheat oven to 180°C (350°F).",
+                        "Place salmon fillets in a baking dish.",
+                        "Drizzle with olive oil, lemon juice, garlic, and spices.",
+                        "Bake for 20 minutes or until cooked through."
+                    ]
+                }
+            };
+
+            function openModal(recipeKey, imageSrc) {
+                const recipe = recipes[recipeKey];
+                recipeDetails.innerHTML = `
+                    <img src="${imageSrc}" alt="${recipe.title}" style="width:100%; height:auto; margin-bottom: 20px;">
+                    <h2>${recipe.title}</h2>
+                    <h3>Preparation Time: ${recipe.time}</h3>
+                    <h3>Ingredients:</h3>
+                    <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+                    <h3>Steps:</h3>
+                    <ul>${recipe.steps.map(step => `<li>${step}</li>`).join('')}</ul>
+                `;
+                modal.style.display = 'flex';
+            }
+
+            document.querySelectorAll('.view-recipe').forEach(button => {
+                button.addEventListener('click', event => {
+                    event.preventDefault();
+                    const recipeKey = button.getAttribute('data-recipe');
+                    const imageSrc = button.closest('.recipe-card').querySelector('.recipe-image').src;
+                    openModal(recipeKey, imageSrc);
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', event => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+
+
+        /////
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-btn');
+const recipeCards = document.querySelectorAll('.recipe-card');
+
+function searchRecipes() {
+    const query = searchInput.value.toLowerCase();
+
+    recipeCards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const ingredients = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(query) || ingredients.includes(query)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+searchButton.addEventListener('click', searchRecipes);
+searchInput.addEventListener('keyup', searchRecipes);
+
+
+    </script>
+</body>
+</html>
